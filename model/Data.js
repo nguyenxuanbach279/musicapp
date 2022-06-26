@@ -4,14 +4,14 @@ const songs = [
     title: 'Ai chung tình được mãi',
     artist: 'Đinh Tùng Huy',
     artwork: require('../assets/img/actdm.png'),
-    url: 'https://data.chiasenhac.com/down2/2245/5/2244526-58016f27/128/Ai%20Chung%20Tinh%20Duoc%20Mai%20-%20Thuong%20Vo_%20ACV.mp3?fbclid=IwAR0_YWxVW6fs4odA0UO0MRMrIvdDKUlihO7tuOUiKRpDvCBUhRK6Wf4dqZA',
+    url: 'https://cdn.discordapp.com/attachments/775740994595323954/775741533789224960/Alan_Walker_-_Sing_Me_To_SleepMP3_160K.mp3',
   },
   {
     id: 2,
     title: 'Có không giữ mất đừng tìm',
     artist: 'Trúc Nhân',
     artwork: require('../assets/img/ckgmdt.png'),
-    url: 'https://data.chiasenhac.com/down2/2245/2/2244802-f08f6eea/128/Co%20Khong%20Giu%20Mat%20Dung%20Tim%20-%20Truc%20Nhan.mp3?fbclid=IwAR3w6BMkhahXx8oEOqZFadG1TjNMS2M8u00xRkXpJeo6RpPdmuhUulybgZA',
+    url: 'https://cdn.discordapp.com/attachments/775740994595323954/775741536591806484/Alan_Walker_-_Fade_NCS_ReleaseMP3_160K.mp3',
   },
   {
     id: 3,
