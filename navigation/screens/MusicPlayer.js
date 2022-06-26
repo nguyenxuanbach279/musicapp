@@ -9,6 +9,7 @@ import {
   Image,
   FlatList,
   Animated,
+  Share
 } from 'react-native';
 
 import TrackPlayer, {
@@ -73,8 +74,9 @@ function MusicPlayer({ route, navigation }) {
           Capability.SkipToPrevious,
           Capability.Stop,
         ],
+
       });
-      await TrackPlayer.add(songs);
+      await TrackPlayer.add(songs[idSong]);
     } catch (error) {
       console.log(error);
     }
@@ -159,9 +161,10 @@ const togglePlayBack = async playBackState => {
       console.log("Clicked skip btn", tempSkipSong);
       // var tempSkipSong = songs[idSong];
       // setUrlSong(tempSkipSong.url)
-      setImageSong(tempSkipSong.linkImg1);
+      setImageSong(tempSkipSong.linkImg2);
       setAuthorSong(tempSkipSong.author);
       setNameSong(tempSkipSong.name);
+      setupPlayer();
     } else {
       alert("Hết bài hát trong danh sách phát rồi!!!");
     }
@@ -175,9 +178,10 @@ const togglePlayBack = async playBackState => {
       setIdSong(idSong - 1);
       var tempSkipSong = songs.find((song) => song.id == idSong);
       // var tempSkipSong = songs[idSong];
-      setImageSong(tempSkipSong.linkImg1);
+      setImageSong(tempSkipSong.linkImg2);
       setAuthorSong(tempSkipSong.author);
       setNameSong(tempSkipSong.name);
+      setupPlayer();
 
     } else {
       alert("Hết bài hát trong danh sách phát rồi!!!");
@@ -211,7 +215,26 @@ const togglePlayBack = async playBackState => {
       );
 
   }
-
+  const onShare = async () => {
+    try {
+      const result = await Share.share({
+        title: "App link",
+        message: `Bài hát: ${nameSong}  Tác giả: ${authorSong} ${imageSong}`,
+        url: urlSong,
+      });
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+          // shared with activity type of result.activityType
+        } else {
+          // shared
+        }
+      } else if (result.action === Share.sharedAction) {
+        // dismissed
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  };
 
   return (
     <SafeAreaView style={style.container}>
@@ -328,7 +351,7 @@ const togglePlayBack = async playBackState => {
             />
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={() => {}}>
+          <TouchableOpacity onPress={onShare}>
             <Ionicons name="share-outline" size={30} color="#888888" />
           </TouchableOpacity>
 

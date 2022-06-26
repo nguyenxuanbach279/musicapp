@@ -53,14 +53,14 @@ export default class PlayList extends React.Component {
   getStudentsData = (querySnapshot) => {
     const students = [];
     querySnapshot.forEach((res) => {
-      const { name, author, id, url, linkImg1 } = res.data();
+      const { name, author, id, url, linkImg2 } = res.data();
       students.push({
         key: res.id,
         name,
         author,
         id,
         url,
-        linkImg1,
+        linkImg2,
       });
     });
     this.setState({
@@ -70,7 +70,7 @@ export default class PlayList extends React.Component {
   };
 
   setSong = (song) => {
-    this.setState({ uri: song.linkImg1 });
+    this.setState({ uri: song.linkImg2 });
     this.setState({ id: song.id });
     this.setState({ song: song, name: song.name, author: song.author });
     // console.log(this.state.id);
@@ -86,7 +86,7 @@ export default class PlayList extends React.Component {
     // console.log("PlayList Song",song.author);
     this.props.navigation.navigate("Music", {
       url: song.url,
-      urlImage: song.linkImg1,
+      urlImage: song.linkImg2,
       id: song.id,
       songs: this.state.students,
       name: song.name,
@@ -139,7 +139,7 @@ export default class PlayList extends React.Component {
               </View>
 
               {/* Danh sách bài hát */}
-              <ScrollView style={{ width: "100%", height: 700 }}>
+              <ScrollView style={{ width: "100%", height: 1100 }}>
                 {this.state.students.map((song, index) => {
                   return (
                     // <TouchableOpacity>

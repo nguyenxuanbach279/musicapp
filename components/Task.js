@@ -44,7 +44,7 @@ export default class Task extends React.Component {
   };
   render() {
     // console.log("props:",this.props.song.links.images[1].url);
-    const uri = this.props.song.linkImg1;
+    const uri = this.props.song.linkImg2;
     const author = this.props.song.author;
     const song = this.props.song;
     // console.log((this.state.activited == false) ? "activitedItem" : "" );

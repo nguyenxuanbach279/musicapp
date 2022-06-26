@@ -36,7 +36,9 @@ export default class MainContainer extends React.Component {
               } else if (rn === userName) {
                 iconName = focused ? "person" : "person-outline";
               }
-
+              else if (rn === musicPlayer) {
+                iconName = focused ? "musical-notes" : "musical-notes-outline";
+              }
               // You can return any component that you like here!
               return <Ionicons name={iconName} size={size} color={color} />;
             },
